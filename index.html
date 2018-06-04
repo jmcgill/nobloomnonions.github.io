@@ -1,0 +1,84 @@
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="flipclock.css">
+<style>
+body {
+	font-size: 50pt;
+	font-family: Helvetica, Arial, sans-serif;
+	background: #FF6F59;
+}
+
+html, body, .container {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.flip-clock-label {
+	color: white !important;
+}
+</style>
+<script src="flipclock.min.js"></script>
+<script>
+function load() {
+	window.setTimeout(function() {
+		$(".container").fadeToggle(1000, "swing");
+	}, 1000)
+
+	window.setTimeout(function() {
+		$(".container").fadeToggle(1000, "swing");
+	}, 5000)
+
+	window.setTimeout(function() {
+		$(".container").html("Only you can help.<br>Please don't blog before Monday.")
+	}, 6500)
+
+	window.setTimeout(function() {
+		$(".container").fadeToggle(1000, "swing");
+	}, 8000)
+
+	window.setTimeout(function() {
+		$(".container").fadeToggle(1000, "swing");
+	}, 11000)
+
+	window.setTimeout(function() {
+		$("body").css({
+			"backgroundImage": 'url("jj.jpg")',
+			"backgroundSize": 'cover',
+		});
+
+		var startDate = new Date();
+		var endDate  = Date.parse("11 Jun 2018 14:00:00 GMT");
+		console.log(endDate);
+		var seconds = (endDate - startDate.getTime()) / 1000;
+		console.log(endDate);
+		console.log(seconds);
+
+		var clock = $('#clock').FlipClock(seconds, {
+			clockFace: "HourlyCounter",
+			clockFaceOptions: {
+				countdown: true,
+			}
+		})
+	}, 13000);
+}
+</script>
+</head>
+<body onload="load()">
+<div class="container" style="display: none; position: relative;">
+Every year hundreds of Australian's are forced to eat at Outback Steakhouse.
+</div>
+<div id="clock" style="position: absolute; top: 50px; left: 50px;"></div>
+</div>
+</body>
+</html>
